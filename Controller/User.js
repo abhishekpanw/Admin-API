@@ -68,3 +68,12 @@ exports.createuser = async (req, res) => {
   await users.save();
   res.send(users);
 };
+
+exports.Usercount = async (req, res) => {
+  try {
+    const count = await User.count({});
+    res.send(200, count);
+  } catch (err) {
+    console.log(err);
+  }
+};

@@ -100,3 +100,12 @@ exports.SubCategorystatus_update = async (req, res) => {
 
   res.send(status);
 };
+
+exports.SubCategorycount = async (req, res) => {
+  try {
+    const count = await SubCategory.count({});
+    res.send(200, count);
+  } catch (err) {
+    console.log(err);
+  }
+};

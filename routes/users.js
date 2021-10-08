@@ -8,6 +8,7 @@ var {
   deleteUser,
   adduser,
   createuser,
+  Usercount,
 } = require("../Controller/User");
 
 router.post("/users/register", register);
@@ -17,5 +18,6 @@ router.get("/users", allusers);
 router.get("/users/:id", getuser);
 router.put("/users/:id", user_update);
 router.delete("/users/:id", deleteUser);
+router.get("/Usercount", Usercount);
 
 module.exports = router;

@@ -97,3 +97,12 @@ exports.ProductId = async (req, res) => {
   const category = await Product.findOne({ _id: req.params.id });
   res.json(category);
 };
+
+exports.Productcount = async (req, res) => {
+  try {
+    const count = await Product.count({});
+    res.send(200, count);
+  } catch (err) {
+    console.log(err);
+  }
+};

@@ -7,6 +7,7 @@ var {
   getCategory,
   deleteCategory,
   Categorystatus_update,
+  Categorycount,
 } = require("../Controller/Category");
 
 var {
@@ -16,6 +17,7 @@ var {
   Productdelete,
   updateProduct,
   ProductId,
+  Productcount,
 } = require("../Controller/Product");
 
 var {
@@ -25,6 +27,7 @@ var {
   updateSubCategory,
   deleteSubCategory,
   SubCategorystatus_update,
+  SubCategorycount,
 } = require("../Controller/SubCategory");
 
 {
@@ -37,6 +40,7 @@ router.put("/updateCategory/:id", updateCategory);
 router.get("/getCategory/:id", getCategory);
 router.delete("/deleteCategory/:id", deleteCategory);
 router.put("/Categorystatus_update/:id", Categorystatus_update);
+router.get("/Categorycount", Categorycount);
 
 {
   /*======================  SubCategory =====================================*/
@@ -46,6 +50,7 @@ router.put("/Categorystatus_update/:id", Categorystatus_update);
   router.put("/updateSubCategory/:id", updateSubCategory);
   router.delete("/deleteSubCategory/:id", deleteSubCategory);
   router.put("/SubCategorystatus_update/:id", SubCategorystatus_update);
+  router.get("/SubCategorycount", SubCategorycount);
 }
 
 {
@@ -56,6 +61,7 @@ router.put("/Categorystatus_update/:id", Categorystatus_update);
   router.delete("/Productdelete/:id", Productdelete);
   router.put("/updateProduct/:id", updateProduct);
   router.get("/ProductId/:id", ProductId);
+  router.get("/Productcount", Productcount);
 }
 
 module.exports = router;

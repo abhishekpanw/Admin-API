@@ -92,3 +92,12 @@ exports.Categorystatus_update = async (req, res) => {
 
   res.send(status);
 };
+
+exports.Categorycount = async (req, res) => {
+  try {
+    const count = await Category.count({});
+    res.send(200, count);
+  } catch (err) {
+    console.log(err);
+  }
+};
