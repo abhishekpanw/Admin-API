@@ -33,6 +33,31 @@ exports.allusers = async (req, res) => {
   }
 };
 
+exports.allSubCategory = async (req, res) => {
+  try {
+    const Perpage = 4;
+    const PAGE_SIZE = parseInt(Perpage);
+    const page = parseInt(req.query.page || 1);
+    const total = await SubCategory.countDocuments({});
+
+    const users = await SubCategory.find({ new: true })
+      //.populate("subcat_id")
+      .limit(PAGE_SIZE)
+      .skip((page - 1) * PAGE_SIZE);
+
+    res.status(200).json({
+      totalPages: Math.ceil(total / PAGE_SIZE),
+      total: total,
+      current_page: page,
+      per_page: PAGE_SIZE,
+      user: users,
+      // data: newImages,
+    });
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+
 exports.deleteUser = async (req, res) => {
   try {
     let user = await User.findOneAndDelete({ _id: req.params.id });
