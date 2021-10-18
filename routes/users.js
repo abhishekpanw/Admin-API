@@ -5,6 +5,7 @@ var {
   login,
   forget_password,
   resetPassword,
+  accountVerify,
 } = require("../Controller/Auth");
 var {
   getuser,
@@ -26,5 +27,6 @@ router.delete("/users/:id", deleteUser);
 router.get("/Usercount", Usercount);
 router.post("/forget_password", forget_password);
 router.post("/resetPassword/:token", resetPassword);
+router.post("/accountVerify/:token", accountVerify);
 
 module.exports = router;
