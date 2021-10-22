@@ -25,8 +25,11 @@ exports.allCategory = async (req, res) => {
     const PAGE_SIZE = parseInt(Perpage);
     const page = parseInt(req.query.page || 1);
     const total = await Category.countDocuments({});
+    const { search } = req.query;
 
-    const users = await Category.find({ new: true })
+    const users = await Category.find(
+      search ? { title: { $regex: ".*" + search + ".*" } } : {}
+    )
       //.populate("subcat_id")
       .limit(PAGE_SIZE)
       .skip((page - 1) * PAGE_SIZE);
